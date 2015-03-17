@@ -182,6 +182,13 @@ namespace Simple.MailServer.Smtp
             return response;
         }
 
+        protected override SmtpResponse ProcessCommandAuth(string name, string value)
+        {
+            // TODO: Stick username provided in "value" parameter somewhere.
+            // Response with 334, but will need another way to capture the Password being sent in the next transaction, which doesn't contain a command name parameter.
+            return new SmtpResponse(334, value);
+        }
+
         private SmtpResponse CreateResponseIfNotIdentified()
         {
             if (SessionInfo.Identification.Mode == SmtpIdentificationMode.NotIdentified)

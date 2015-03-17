@@ -51,6 +51,7 @@ namespace Simple.MailServer.Smtp
                 { "RCPT TO:", ProcessCommandRcptTo },
                 { "RSET", ProcessCommandRset },
                 { "VRFY", ProcessCommandVrfy },
+                { "AUTH", ProcessCommandAuth },
             };
 
             return mapping;
@@ -66,6 +67,7 @@ namespace Simple.MailServer.Smtp
         protected abstract SmtpResponse ProcessCommandRcptTo(string name, string value);
         protected abstract SmtpResponse ProcessCommandRset(string name, string value);
         protected abstract SmtpResponse ProcessCommandVrfy(string name, string value);
+        protected abstract SmtpResponse ProcessCommandAuth(string name, string value);
 
         protected abstract SmtpResponse ProcessDataLine(byte[] lineBuf);
         protected abstract SmtpResponse ProcessRawLine(string line);

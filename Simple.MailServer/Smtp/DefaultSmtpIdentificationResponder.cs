@@ -55,7 +55,7 @@ namespace Simple.MailServer.Smtp
 
         private SmtpResponse VerifyEhlo()
         {
-            var response = new SmtpResponse(250, "SIZE " + Configuration.MaxMailMessageSize, new[] { "250-PIPELINING" });
+            var response = new SmtpResponse(250, "SIZE " + Configuration.MaxMailMessageSize, new[] { "250-PIPELINING","250-AUTH PLAIN" });
             return response;
         }
     }

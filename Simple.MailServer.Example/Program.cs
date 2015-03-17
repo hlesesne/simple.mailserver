@@ -59,6 +59,7 @@ namespace Simple.MailServer.Example
                 DataResponder = new ExampleDataResponder(smtpServer.Configuration, RootMailDir)
                 // ... inject other responders here as needed (or leave default)
             };
+            
 
             smtpServer.BindAndListenTo(IPAddress.Loopback, 25);
             return smtpServer;
